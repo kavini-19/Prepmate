@@ -1,5 +1,6 @@
 """Entry point for running the FastAPI server."""
 import uvicorn
+from app.main import app  # noqa: F401
 
 if __name__ == "__main__":
     uvicorn.run(

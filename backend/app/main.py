@@ -9,8 +9,8 @@ from app.api.routes import auth, coding, aptitude, ai, notes, companies, analyti
 
 # Create all tables & auto-seed
 import app.models  # noqa: ensure models are imported
-Base.metadata.create_all(bind=engine)
 try:
+    Base.metadata.create_all(bind=engine)
     try:
         from seed import seed_database
     except ModuleNotFoundError:

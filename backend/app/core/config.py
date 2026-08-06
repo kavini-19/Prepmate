@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     FRONTEND_URL: str = "http://localhost:3000"
 
     # Database
-    DATABASE_URL: str = "postgresql://postgres:postgres@localhost:5432/prepmate_db"
+    DATABASE_URL: str = "sqlite:///./prepmate.db"
 
     # JWT
     SECRET_KEY: str = "dev-secret-key-change-in-production-must-be-32-chars-long"

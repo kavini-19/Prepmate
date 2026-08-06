@@ -9,9 +9,12 @@ from app.api.routes import auth, coding, aptitude, ai, notes, companies, analyti
 
 # Create all tables & auto-seed
 import app.models  # noqa: ensure models are imported
-from seed import seed_database
 Base.metadata.create_all(bind=engine)
 try:
+    try:
+        from seed import seed_database
+    except ModuleNotFoundError:
+        from backend.seed import seed_database
     seed_database()
 except Exception as e:
     print(f"Auto-seed warning: {e}")
@@ -20,8 +23,8 @@ app = FastAPI(
     title=settings.APP_NAME,
     version=settings.APP_VERSION,
     description="AI-Powered Placement Preparation Platform API",
-    docs_url="/api/docs" if settings.DEBUG else None,
-    redoc_url="/api/redoc" if settings.DEBUG else None,
+    docs_url="/api/docs",
+    redoc_url="/api/redoc",
 )
 
 # Middleware

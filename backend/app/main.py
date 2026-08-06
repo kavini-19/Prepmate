@@ -48,6 +48,16 @@ app.include_router(resources.router, prefix=API_PREFIX)
 app.include_router(admin.router, prefix=API_PREFIX)
 
 
+@app.get("/")
+def root():
+    return {"status": "healthy", "version": settings.APP_VERSION, "app": settings.APP_NAME}
+
+
+@app.get("/health")
+def health_check_root():
+    return {"status": "healthy", "version": settings.APP_VERSION, "app": settings.APP_NAME}
+
+
 @app.get("/api/health")
 def health_check():
     return {"status": "healthy", "version": settings.APP_VERSION, "app": settings.APP_NAME}

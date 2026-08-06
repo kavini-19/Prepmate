@@ -51,17 +51,17 @@ app.include_router(resources.router, prefix=API_PREFIX)
 app.include_router(admin.router, prefix=API_PREFIX)
 
 
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 def root():
     return {"status": "healthy", "version": settings.APP_VERSION, "app": settings.APP_NAME}
 
 
-@app.get("/health")
+@app.api_route("/health", methods=["GET", "HEAD"])
 def health_check_root():
     return {"status": "healthy", "version": settings.APP_VERSION, "app": settings.APP_NAME}
 
 
-@app.get("/api/health")
+@app.api_route("/api/health", methods=["GET", "HEAD"])
 def health_check():
     return {"status": "healthy", "version": settings.APP_VERSION, "app": settings.APP_NAME}
 

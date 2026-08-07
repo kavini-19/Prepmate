@@ -1,5 +1,7 @@
 # PrepMate — AI-Powered Placement Preparation Platform
 
+🚀 **Live Application**: [https://prepmate-cyan.vercel.app](https://prepmate-cyan.vercel.app)
+
 A full-stack, production-ready platform to help engineering students crack placements at top companies.
 
 ---
